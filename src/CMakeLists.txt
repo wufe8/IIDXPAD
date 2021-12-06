@@ -13,15 +13,15 @@ source_group("Sources" FILES ${SRC})
 
 message("${SRCROOT}")
 
-add_executable(SDVXPAD ${SRC})
+add_executable(IIDXPAD ${SRC})
 
-target_compile_features(SDVXPAD PRIVATE cxx_std_17)
-target_include_directories(SDVXPAD PRIVATE ${SRCROOT})
+target_compile_features(IIDXPAD PRIVATE cxx_std_17)
+target_include_directories(IIDXPAD PRIVATE ${SRCROOT})
 
-target_link_libraries(SDVXPAD PRIVATE uws optparse spdlog)
+target_link_libraries(IIDXPAD PRIVATE uws optparse spdlog)
 
 add_custom_command(
-    TARGET SDVXPAD POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/res/ $<TARGET_FILE_DIR:SDVXPAD>/res/
-    COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/static/ $<TARGET_FILE_DIR:SDVXPAD>/
+    TARGET IIDXPAD POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/res/ $<TARGET_FILE_DIR:IIDXPAD>/res/
+    COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/static/ $<TARGET_FILE_DIR:IIDXPAD>/
 )
