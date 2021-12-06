@@ -1,12 +1,15 @@
 #include <memory>
 
+enum KeyboardSimulatorLayout
+{
+	LAYOUT_YUANCON,
+	LAYOUT_TASOLLER,
+	LAYOUT_IIDX,
+    LAYOUT_TEST
+};
+
 struct KeyboardSimulator
 {
-    enum KeyboardSimulatorLayout
-    {
-        LAYOUT_YUANCON,
-        LAYOUT_TASOLLER
-    };
 
     struct Impl;
     std::unique_ptr<Impl> m_impl;

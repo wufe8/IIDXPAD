@@ -33,13 +33,27 @@ WORD YUANCON_BTN_MAP[N_BUTTONS] = {
     'H', 'G', 'F', 'E', 'D', 'C', 'B', 'A',
     'Y', 'Q', 'W','E', 'R', 'T'};
 
+WORD IIDX_BTN_MAP[N_BUTTONS] = {
+    '1', 'D', 'D', ' ', ' ', 'J', 'J', 'S',
+    'S', 'F', 'F', 'H', 'H', 'K', 'K', 'A',
+    'A', 'L', 'L', 'J', 'K', 'L', 'M', 'N',
+    'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V',
+    'W', 'Q', 'W','E', 'R', 'Esc'};
+
+WORD TEST_BTN_MAP[N_BUTTONS] = {
+    '1', '2', '3', '4', '5', '6', '7', '8',
+    '9', '0', 'A', 'B', 'C', 'D', 'E', 'F',
+    'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
+    'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V',
+    'W', 'X', 'Y','Z', '-', '='};
+
 struct KeyboardSimulator::Impl
 {
     WORD *m_layout;
 
     uint64_t m_last_keys;
 
-    Impl(KeyboardSimulator::KeyboardSimulatorLayout layout);
+    Impl(KeyboardSimulatorLayout layout);
 
     void key_down(int i);
     void key_up(int i);
@@ -62,7 +76,7 @@ void KeyboardSimulator::delay(int millis)
     Sleep(millis);
 }
 
-KeyboardSimulator::Impl::Impl(KeyboardSimulator::KeyboardSimulatorLayout layout)
+KeyboardSimulator::Impl::Impl(KeyboardSimulatorLayout layout)
     : m_layout(nullptr),
       m_last_keys(0)
 {
@@ -74,6 +88,11 @@ KeyboardSimulator::Impl::Impl(KeyboardSimulator::KeyboardSimulatorLayout layout)
     case LAYOUT_TASOLLER:
         // m_layout = TASOLLER_BTN_MAP;
         // break;
+    case LAYOUT_IIDX:
+        m_layout = IIDX_BTN_MAP;
+        break;
+    case LAYOUT_TEST:
+        m_layout = TEST_BTN_MAP;
     default:
         m_layout = YUANCON_BTN_MAP;
         break;
