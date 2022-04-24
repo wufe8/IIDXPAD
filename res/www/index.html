@@ -8,7 +8,7 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <link rel="apple-touch-icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" href="./favicon.ico" />
     <style>
       #fullscreen {
         position: fixed;
@@ -112,12 +112,13 @@
   </head>
   <body>
     <div id="fullscreen">
+        <canvas id="canvas" width="33" height="1"></canvas>
       <!-- Offset for LED display -->
       <div class="container">
         <div class="left-container grow">
           <div class="set-container grow"></div>
           <div class="black-container grow">
-            <canvas id="canvas" width="33" height="1"></canvas>
+            
           </div>
           <div class="white-container grow"></div>
         </div>
@@ -149,13 +150,14 @@
         </div>
         <div class ="right-container grow">
           <div class="scratch-container grow">
+            <div></div>
 		    <div class="key" data-kflag="14"> TT+ </div>
 		    <div class="key" data-kflag="16"> TT- </div>
 		  </div>
         </div>
       </div>
     </div>
-    <script src="/config.js"></script>
-    <script src="/app.js"></script>
+    <script src="./config.js"></script>
+    <script src="./app.js"></script>
   </body>
 </html>
